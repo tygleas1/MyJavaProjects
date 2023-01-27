@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-/********************************************************************************************
+/*********************************************************************************************
 Description: 		The invoice app calculates the discout amount
 Programmer’s name: 	Tyler Gleason
 Date Written: 		2023.01.27
 GitHub: 			https://github.com/tygleas1/MyJavaProjects/tree/main/Section1-InvoiceApp
-********************************************************************************************/
+*********************************************************************************************/
 public class InvoiceApp {
 
     public static void main(String[] args) {
