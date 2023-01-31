@@ -15,27 +15,34 @@ public class InvoiceApp {
         
         // initialize variables for use in calculating averages
         double invoiceTotal = 0.0;
-        double discountTotal = 0.0;
-        double discountPercent = 0.0;
         double discountAmount = 0;
+        double discountPercent = 0.0;
+        double discountTotal = 0.0;
         double invoiceDiscountTotal = 0.0;
         double subtotal = 0.0;
+        
         int invoiceCount = 0;
+        int numLineItems = 0;
 
         // perform invoice calculations until choice is "n" or "N" 
-        String choice = "y";
-        String input = sc.nextLine();
+        String choice = "y"; // perform invoice calculations until choice is "n" or "N"
         String message = "?";
-        
+    
         // welcome the user to the program
-        System.out.println("Welcome to the Invoice Total Calculator Version 1");
+        System.out.println("==========================================");
+        System.out.println("Welcome to the Invoice Total Calculator v2");
+        System.out.println("==========================================");
         System.out.println();  // print a blank line
 
         while (!choice.equalsIgnoreCase("n")) {
-            // get the invoice subtotal from the user
-            System.out.print("Enter subtotal:   ");
-            input = sc.nextLine();
-            subtotal = Double.parseDouble(input);
+            // get the number of line items from the user
+            System.out.print("Enter the number of line items:   ");
+            numLineItems = sc.nextInt();
+            
+            for (int i = 1; i <= numLineItems; i++) {
+            	System.out.print("Enter #" + i + " line item amount: ");
+            	subtotal += sc.nextDouble();
+            }
 
             // calculate the discount amount and total
             if (subtotal >= 500) {
@@ -56,11 +63,18 @@ public class InvoiceApp {
             invoiceCount = invoiceCount + 1;  
 
             // display the discount amount and total
+            // better is to use printf
             message = "Discount percent: " + discountPercent + "\n"
                            + "Discount amount:  " + discountAmount + "\n"
                            + "Invoice total:    " + invoiceDiscountTotal + "\n";            
             System.out.println(message);
+            
+          /*printf
+            printf
+            printf*/
 
+            sc.nextLine(); // empty the input buffer getting rid of the leftover return character
+            
             // see if the user wants to continue
             System.out.print("Continue? (y/n): ");
             choice = sc.nextLine();
@@ -68,9 +82,17 @@ public class InvoiceApp {
         }
         
         // calculate and display invoice count, average invoice, and average discount
+        // better way is to use printf
         message = "Number of invoices: " + invoiceCount + "\n"
                        + "Average invoice:    " + invoiceTotal / invoiceCount + "\n"
                        + "Average discount:   " + discountTotal / invoiceCount + "\n";
         System.out.println(message);
-    }
-}
+        
+        
+      /*printf
+        printf
+        printf */
+        
+        sc.close();
+    } // end of main
+} // end of InvoiceApp class
