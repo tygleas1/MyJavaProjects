@@ -1,0 +1,31 @@
+==========================================
+Welcome to the Invoice Total Calculator v2
+==========================================
+
+Enter the number of line items:   3
+
+==========================================
+
+Enter #1 line item amount: 46.46
+Enter #2 line item amount: 58.58
+Enter #3 line item amount: 23.54
+
+==========================================
+
+
+            Subtotal:     128.58
+    Discount percent:       0.10
+     Discount amount:      12.86
+       Invoice total:     115.72
+
+==========================================
+
+Continue? (y/n): n
+
+
+The Good, the Bad, the Ugly
+
+	The good was finishing the code and having it function well. The bad was when I would mess up 
+	things on accident and not know why my program wouldn't work or appeared to be messed up. The
+	Ugly was having to go back to previous videos and figure out what I needed to code and kind of
+	struggling through some of it.
