@@ -1,25 +1,35 @@
-
 public class BankApp {
-	public static void main(String[] args) {
 
-		Account debbieAccount = new Account();
-		
-		debbieAccount.balance = 2000.20;
-		
-		System.out.println(debbieAccount.number);
-		System.out.println(debbieAccount.firstName);
-		System.out.println(debbieAccount.lastName);
-		System.out.println(debbieAccount.balance);
-		
-		
-		Account tylerAccount = new Account(1000.10, "Tyler", "Gleason");
-		
-		System.out.println(tylerAccount.number);
-		System.out.println(tylerAccount.firstName);
-		System.out.println(tylerAccount.lastName);
-		System.out.println(tylerAccount.balance);
-
-
+	public static void printAccount(Account account) {
+		System.out.println("Ref Val: " + account);
+		System.out.println("Account: " + account.number);
+		System.out.println("Name:    " + account.firstName + " " + account.lastName); 
+		System.out.println("Balance: " + account.balance);
+		System.out.println();
 	}
+
+	public static void main(String[] args) {
+ 
+		// Instantiate a new Account object using the default constructor
+		// Object can also be called a instance variable, and also reference variable
+		Account account1 = new Account(); // account1 is a reference variable
+		BankApp.printAccount(account1);
+		
+		
+		// Change the instance's field values
+		account1.balance = 1000.10;
+		account1.firstName = "Debbie";
+		account1.lastName = "Johnson";
+		BankApp.printAccount(account1);
+		
+		// Instantiate another new Account object using the overload constructor
+		Account account2 = new Account("Sam", "Smith", 2000.20);
+		BankApp.printAccount(account2);
+		
+		
+		// Displaying class level field's value
+		System.out.println("Class level field lastNumber: " + Account.lastNumber);
+
+	} // end of main
 	
-}
+} // end of BankApp class
