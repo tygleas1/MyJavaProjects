@@ -2,9 +2,9 @@ public class BankApp {
 
 	public static void printAccount(Account account) {
 		System.out.println("Ref Val: " + account);
-		System.out.println("Account: " + account.number);
-		System.out.println("Name:    " + account.firstName + " " + account.lastName); 
-		System.out.println("Balance: " + account.balance);
+		System.out.println("Account: " + account.getNumber());
+		System.out.println("Name:    " + account.getFirstName() + " " + account.getLastName()); 
+		System.out.println("Balance: " + account.getBalance());
 		System.out.println();
 	}
 
@@ -17,12 +17,15 @@ public class BankApp {
 		
 		
 		// Change the instance's field values
-		account1.balance = 1000.10;
-		account1.firstName = "Debbie";
-		account1.lastName = "Johnson";
+		account1.deposit(-100.10);
+		account1.deposit(1000.10);
+		account1.withdrawal(2000.10);
+		account1.setFirstName("Debbie");
+		account1.setLastName("Johnson");
 		BankApp.printAccount(account1);
 		
 		// Instantiate another new Account object using the overload constructor
+		// an object can also be called an instance variable or a reference variable
 		Account account2 = new Account("Sam", "Smith", 2000.20);
 		BankApp.printAccount(account2);
 		
