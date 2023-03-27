@@ -68,6 +68,10 @@ public class Team {
 		this.name = name;
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	/**
 	 * Jersey Name            Fouls 1pt 2pt 3pt Total
      * ====== =============== ===== === === === =====

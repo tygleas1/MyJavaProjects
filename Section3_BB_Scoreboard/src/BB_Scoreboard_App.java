@@ -1,5 +1,5 @@
 /**
- * Basketball Stats Application
+ * Basketball Scoreboard Application
  * 
  * @author dljohnson1234
  * @since 2022.02.15
@@ -261,7 +261,7 @@ public class BB_Scoreboard_App {
 	 */
 	public static void main(String[] args) throws Exception {
 
-		BB_Stats_App app = new BB_Stats_App();
+		BB_Scoreboard_App app = new BB_Scoreboard_App();
 		
 		app.displayAppHeading();
 		
