@@ -41,13 +41,13 @@ public class Animal {
 		this.setWeight(weight);
 	}
 
-	public void setBirthdate(Date date) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 		
 	}
 	
-	public void setBirthdate(String date) throws ParseException {
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+	public void setBirthdate(String birthdate) throws ParseException {
+			SimpleDateFormat formatter = new SimpleDateFormat("MMM-dd-yyyy", Locale.ENGLISH);
 			this.birthdate = formatter.parse(birthdate);
 	}
 	
