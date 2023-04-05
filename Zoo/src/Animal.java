@@ -12,6 +12,8 @@ public class Animal {
 	
 	private final String type;
 	
+	private Gender gender;
+	
 	/**
 	 * https://www.baeldung.com/java-creating-localdate-with-values
 	 * https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
@@ -21,8 +23,9 @@ public class Animal {
 	private float weight;
 	
 	public Animal() {
-		this.type = "Animal";
 		this.id = ++Animal.counter;
+		this.type = "Animal";
+		this.gender = Gender.UNKNOWN;
 		this.birthdate = null;
 		this.weight = 0;
 	}
@@ -45,7 +48,11 @@ public class Animal {
 		if (this.birthdate == null)
 			return "unknown";
 		else
-			return this.FORMAT.format(this.birthdate);
+			return Animal.FORMAT.format(this.birthdate);
+	}
+	
+	public Gender getGender() {
+		return this.gender;
 	}
 	
 	public String getType() {
@@ -61,8 +68,11 @@ public class Animal {
 
 		if (birthdate instanceof String) {
 			
-			String date = (String) birthdate;
-		    this.birthdate = LocalDate.parse(date, this.FORMAT);;
+			this.birthdate = LocalDate.parse((String) birthdate, Animal.FORMAT);;
+			/* or for readability:
+				String s = (String) birthdate;
+		    	this.birthdate = LocalDate.parse(s, Animal.FORMAT);; 
+		    */
 		    
 		} else if (birthdate instanceof LocalDate){
 			
@@ -77,6 +87,31 @@ public class Animal {
 			
 	}
 	
+	public <T> void setGender(T gender) throws Exception {
+		
+		if (gender instanceof String) {
+			String s = (String) gender;
+			
+			s = s.toLowerCase();
+			
+			switch (s) {
+			case "m":
+			case "male":
+				this.gender = Gender.MALE;
+			case "f":
+			case "female":
+				this.gender = Gender.FEMALE;
+				break;
+			default:
+				throw new Exception("Invalid gender: " + s);
+			}
+		} else if (gender instanceof Gender) {
+			this.gender = (Gender) gender;
+		} else {
+			throw new Exception("Invalid gender: " + gender);
+		}
+	}
+	
 	public void setWeight(float weight) throws Exception {
 		
 		if (weight > 0)
@@ -85,4 +120,9 @@ public class Animal {
 			throw new Exception("Invalid weight: " + weight);
 	}
 
+	@Override
+	public String toString() {
+		return this.id + " " + this.type;
+	}
+	
 }
