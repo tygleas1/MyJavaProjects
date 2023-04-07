@@ -1,3 +1,4 @@
+package zoo.animal;
 
 public enum Gender {
 	MALE,

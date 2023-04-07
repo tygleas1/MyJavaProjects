@@ -1,3 +1,4 @@
+package zoo.animal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -6,13 +7,13 @@ public class Animal {
 
 	private static int counter = 0;
 
-	private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.US);
+	protected static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.US);
 
-	private int id;
+	protected final int id;
 
-	private final String type;
+	protected final String type = "Animal";
 
-	private Gender gender;
+	protected Gender gender;
 
 	/**
 	 * https://www.baeldung.com/java-creating-localdate-with-values
@@ -24,7 +25,6 @@ public class Animal {
 
 	public Animal() {
 		this.id = ++Animal.counter;
-		this.type = "Animal";
 		this.gender = Gender.UNKNOWN;
 		this.birthdate = null;
 		this.weight = 0;
