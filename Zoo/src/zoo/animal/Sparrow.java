@@ -2,7 +2,7 @@ package zoo.animal;
 
 public class Sparrow extends Bird {
 
-	private final String type = "Sparrow";
+	protected final String type = "Sparrow";
 	
 	public Sparrow() {
 		super();
@@ -20,6 +20,11 @@ public class Sparrow extends Bird {
 	@Override
 	public String toString() {
 		return this.id + " " + this.type;
+	}
+	
+	@Override
+	public void eat() {
+		System.out.println("This" +this.type + " is eating...");
 	}
 	
 }

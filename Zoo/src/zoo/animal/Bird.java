@@ -1,6 +1,6 @@
 package zoo.animal;
 
-public class Bird extends Animal {
+public abstract class Bird extends Animal {
 
 	private float wingspan;
 	

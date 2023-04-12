@@ -22,4 +22,8 @@ public class Chicken extends Bird {
 		return this.id + " " + this.type;
 	}
 	
+	@Override
+	public void eat() {
+		System.out.println("This" +this.type + " is eating...");
+	}
 }

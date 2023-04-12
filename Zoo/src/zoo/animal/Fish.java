@@ -1,10 +1,10 @@
 package zoo.animal;
 
-public class Fish extends Animal{
+public abstract class Fish extends Animal {
 
-private Water water;
+	protected Water water;
 	
-	private final String type = "Fish";
+	protected final String type = "fish";
 	
 	public Fish() {
 		super();
@@ -16,23 +16,46 @@ private Water water;
 		super(birthdate, weight);
 	}
 	
-	public <T> Fish(T birthdate, float weight, Water water) throws Exception {
+	public <T> Fish(T birthdate, float weight, T water) throws Exception {
 		super(birthdate, weight);
-		this.water = Water.UNKNOWN;
+		this.setWater(water);
 	}
 
 	// fix this
-	public float getWater() {
-		return water;
+	public Water getWater() {
+		return this.water;
 	}
 
-	public void setWater(Water water) throws Exception {
+	public <T> void setWater(T water) throws Exception {
 		
 		//finish this
-		if (water > )
-			this.water = Water.UNKNOWN;
-		else
-			throw new Exception("Invalid water type: " + water);
+		if (water instanceof String) {
+			
+			String s = (String) water;
+			
+			s = s.toLowerCase();
+			
+			switch (s) {
+			case "s":
+			case "salt":
+			case "saltwater":
+					this.water = Water.SALT;
+					break;
+			case "f":
+			case "fresh":
+			case "freshwater":
+				this.water = Water.FRESH;
+				break;
+			default:
+				this.water = Water.UNKNOWN;
+				
+			}
+		} else if (water instanceof Water) {
+			Water w = (Water) water;
+			this.water = w;
+		} else {
+			throw new Exception("Invalid water: " + water);
+		}
 	}
 	
 	@Override
