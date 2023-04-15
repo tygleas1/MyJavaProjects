@@ -51,5 +51,15 @@ public class FlyingFish extends Fish implements Fly {
 		
 	}
 	
+	@Override
+	public void propel() {
+		System.out.println("This" +this.type + " is propelling...");
+	}
+	
+	@Override
+	public void drift() {
+		System.out.println("This" +this.type + " is drifting...");
+	}
+	
 }
 
