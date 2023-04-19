@@ -6,27 +6,33 @@ import java.util.Locale;
 public abstract class Animal {
 
 	/**
-	 * 
+	 * counts the number of animals, cannot be altered outside of this class,
+	 * works as such across every class
 	 */
 	private static int counter = 0;
 
 	/**
-	 * 
+	 * formats the date as Month-Day-Year, cannot be altered outside of this 
+	 * class, works like this across every class, declared as final because it won't
+	 * be changed again in this class
 	 */
 	protected static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.US);
 
 	/**
-	 * 
+	 * declares animal id, cannot be altered outside of this class
+	 * declared as final because it won't be changed again in this class
 	 */
 	protected final int id;
 
 	/**
-	 * 
+	 * declares a type of string as "Animal", cannot be changed
+	 * outside of this class, declared as final because it won't
+	 * be changed again in this class
 	 */
 	protected final String type = "Animal";
 
 	/**
-	 * 
+	 * declares a Gender (which is an enum) known as gender
 	 */
 	protected Gender gender;
 
@@ -35,17 +41,19 @@ public abstract class Animal {
 	 * https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
 	 */	
 	/**
-	 * 
+	 * declares a date as birthdate, will be used for animals,
+	 * cannot be accessed outside of this class
 	 */
 	private LocalDate birthdate;
 
 	/**
-	 * 
+	 * declares weight, cannot be accessed outside of this class
 	 */
 	private float weight;
 
 	/**
-	 * 
+	 * initialized Animal, temporarily setting id, gender,
+	 * birthdate, and weight
 	 */
 	public Animal() {
 		this.id = ++Animal.counter;
@@ -59,6 +67,9 @@ public abstract class Animal {
 	 * @param birthdate
 	 * @param weight
 	 * @throws Exception
+	 * 
+	 * initializes Animal, specifically sets birthdate and weight
+	 * provides an exception should an error occur
 	 */
 	public <T> Animal(T birthdate, float weight) throws Exception {
 		this();
@@ -68,6 +79,8 @@ public abstract class Animal {
 
 	/**
 	 * @return
+	 * 
+	 * gets and returns the animal id
 	 */
 	public int getId() {
 		return this.id;
@@ -75,6 +88,8 @@ public abstract class Animal {
 
 	/**
 	 * @return
+	 * 
+	 * gets and returns the animal birthdate
 	 */
 	public LocalDate getBirthdate() {
 		return this.birthdate;
@@ -82,6 +97,9 @@ public abstract class Animal {
 
 	/**
 	 * @return
+	 * 
+	 * gets and returns the animal birthdate, if there is no birthdate,
+	 * returns "unknown"
 	 */
 	public String getBirthdateStr() {
 		if (this.birthdate == null)
@@ -92,6 +110,8 @@ public abstract class Animal {
 
 	/**
 	 * @return
+	 * 
+	 * gets and returns the animal gender
 	 */
 	public Gender getGender() {
 		return this.gender;
@@ -99,6 +119,8 @@ public abstract class Animal {
 
 	/**
 	 * @return
+	 * 
+	 * gets and returns the animal type, or species
 	 */
 	public String getType() {
 		return this.getType();
@@ -106,6 +128,8 @@ public abstract class Animal {
 
 	/**
 	 * @return
+	 * 
+	 * gets and returns the animal weight
 	 */
 	public float getWeight() {
 		return this.weight;
@@ -115,6 +139,9 @@ public abstract class Animal {
 	 * @param <T>
 	 * @param birthdate
 	 * @throws Exception
+	 * 
+	 * sets the animal birthdate as a string, provides an exception
+	 * if an error occurs while displaying the string
 	 */
 	public <T> void setBirthdate(T birthdate) throws Exception {
 
@@ -144,6 +171,9 @@ public abstract class Animal {
 	 * @param <T>
 	 * @param gender
 	 * @throws Exception
+	 * 
+	 * sets the animal gender, provides an exception if an
+	 * error occurs, while displaying the gender
 	 */
 	public <T> void setGender(T gender) throws Exception {
 
@@ -175,6 +205,9 @@ public abstract class Animal {
 	/**
 	 * @param weight
 	 * @throws Exception
+	 * 
+	 * sets the animal weight, displays the weight
+	 * if an error occurs and is not valid
 	 */
 	public void setWeight(float weight) throws Exception {
 
@@ -185,7 +218,7 @@ public abstract class Animal {
 	}
 
 	/**
-	 *
+	 *overrides the code to declare the species outside of main
 	 */
 	@Override
 	public String toString() {
@@ -193,7 +226,7 @@ public abstract class Animal {
 	}
 
 	/**
-	 * 
+	 * calls a lower declared eat function
 	 */
 	abstract public void eat();	
 	

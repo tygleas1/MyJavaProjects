@@ -3,12 +3,13 @@ package zoo.animal;
 public class Guppy extends Fish implements Swim{
 
 	/**
-	 * 
+	 * declares a the type of animal as "Guppy" as a string,
+	 * will not be changed
 	 */
 	private final String type = "Guppy";
 	
 	/**
-	 * 
+	 * declares guppy as inheritance
 	 */
 	public Guppy() {
 		super();
@@ -20,6 +21,8 @@ public class Guppy extends Fish implements Swim{
 	 * @param birthdate
 	 * @param weight
 	 * @throws Exception
+	 * 
+	 * initializes guppy to inherit a birthdate and weight
 	 */
 	public <T> Guppy(T birthdate, float weight) throws Exception {
 		super(birthdate, weight);
@@ -31,13 +34,15 @@ public class Guppy extends Fish implements Swim{
 	 * @param weight
 	 * @param water
 	 * @throws Exception
+	 * 
+	 * initializes guppy to inherit a birthdate, weight, and water
 	 */
 	public <T> Guppy(T birthdate, float weight, T water) throws Exception {
 		super(birthdate, weight, water);
 	}
 
 	/**
-	 *
+	 * overrides the code to declare the species outside of main
 	 */
 	@Override
 	public String toString() {
@@ -45,7 +50,7 @@ public class Guppy extends Fish implements Swim{
 	}
 	
 	/**
-	 *
+	 * overrides the code to declare that the animal is eating
 	 */
 	@Override
 	public void eat() {
@@ -53,7 +58,7 @@ public class Guppy extends Fish implements Swim{
 	}
 	
 	/**
-	 *
+	 * overrides the code to declare that the animal is propelling
 	 */
 	@Override
 	public void propel() {
@@ -61,7 +66,7 @@ public class Guppy extends Fish implements Swim{
 	}
 	
 	/**
-	 *
+	 * overrides the code to declare that the animal is drifting
 	 */
 	@Override
 	public void drift() {

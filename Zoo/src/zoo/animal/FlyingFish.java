@@ -3,12 +3,13 @@ package zoo.animal;
 public class FlyingFish extends Fish implements Fly, Swim{
 
 	/**
-	 * 
+	 * declares a the type of animal as "Flying Fish" as a string,
+	 * will not be changed
 	 */
 	private final String type = "Flying Fish";
 	
 	/**
-	 * 
+	 * declares flying fish as inheritance
 	 */
 	public FlyingFish() {
 		super();
@@ -20,6 +21,8 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	 * @param birthdate
 	 * @param weight
 	 * @throws Exception
+	 * 
+	 * initializes flying fish to inherit a birthdate and weight
 	 */
 	public <T> FlyingFish(T birthdate, float weight) throws Exception {
 		super(birthdate, weight);
@@ -31,13 +34,15 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	 * @param weight
 	 * @param water
 	 * @throws Exception
+	 * 
+	 * initializes flying fish to inherit a birthdate, weight, and water
 	 */
 	public <T> FlyingFish(T birthdate, float weight, T water) throws Exception {
 		super(birthdate, weight, water);
 	}
 
 	/**
-	 *
+	 * overrides the code to declare the species outside of main
 	 */
 	@Override
 	public String toString() {
@@ -45,7 +50,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 	
 	/**
-	 *
+	 * overrides the code to declare that the animal is eating
 	 */
 	@Override
 	public void eat() {
@@ -53,7 +58,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 
 	/**
-	 *
+	 * overrides the code to declare that the animal is soaring
 	 */
 	@Override
 	public void soar() {
@@ -62,7 +67,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 
 	/**
-	 *
+	 * overrides the code to declare that the animal is gliding
 	 */
 	@Override
 	public void glide() {
@@ -71,7 +76,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 
 	/**
-	 *
+	 * overrides the code to declare that the animal is taking off
 	 */
 	@Override
 	public void takeoff() {
@@ -80,7 +85,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 
 	/**
-	 *
+	 * overrides the code to declare that the animal is landing
 	 */
 	@Override
 	public void land() {
@@ -89,7 +94,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 	
 	/**
-	 *
+	 * overrides the code to declare that the animal is propelling
 	 */
 	@Override
 	public void propel() {
@@ -97,7 +102,7 @@ public class FlyingFish extends Fish implements Fly, Swim{
 	}
 	
 	/**
-	 *
+	 * overrides the code to declare that the animal is drifting
 	 */
 	@Override
 	public void drift() {
