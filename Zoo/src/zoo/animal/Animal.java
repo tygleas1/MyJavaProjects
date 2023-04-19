@@ -5,24 +5,48 @@ import java.util.Locale;
 
 public abstract class Animal {
 
+	/**
+	 * 
+	 */
 	private static int counter = 0;
 
+	/**
+	 * 
+	 */
 	protected static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.US);
 
+	/**
+	 * 
+	 */
 	protected final int id;
 
+	/**
+	 * 
+	 */
 	protected final String type = "Animal";
 
+	/**
+	 * 
+	 */
 	protected Gender gender;
 
 	/**
 	 * https://www.baeldung.com/java-creating-localdate-with-values
 	 * https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
 	 */	
+	/**
+	 * 
+	 */
 	private LocalDate birthdate;
 
+	/**
+	 * 
+	 */
 	private float weight;
 
+	/**
+	 * 
+	 */
 	public Animal() {
 		this.id = ++Animal.counter;
 		this.gender = Gender.UNKNOWN;
@@ -30,20 +54,35 @@ public abstract class Animal {
 		this.weight = 0;
 	}
 
+	/**
+	 * @param <T>
+	 * @param birthdate
+	 * @param weight
+	 * @throws Exception
+	 */
 	public <T> Animal(T birthdate, float weight) throws Exception {
 		this();
 		this.setBirthdate(birthdate);
 		this.setWeight(weight);
 	}
 
+	/**
+	 * @return
+	 */
 	public int getId() {
 		return this.id;
 	}
 
+	/**
+	 * @return
+	 */
 	public LocalDate getBirthdate() {
 		return this.birthdate;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getBirthdateStr() {
 		if (this.birthdate == null)
 			return "unknown";
@@ -51,18 +90,32 @@ public abstract class Animal {
 			return Animal.FORMAT.format(this.birthdate);
 	}
 
+	/**
+	 * @return
+	 */
 	public Gender getGender() {
 		return this.gender;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getType() {
 		return this.getType();
 	}
 
+	/**
+	 * @return
+	 */
 	public float getWeight() {
 		return this.weight;
 	}
 
+	/**
+	 * @param <T>
+	 * @param birthdate
+	 * @throws Exception
+	 */
 	public <T> void setBirthdate(T birthdate) throws Exception {
 
 
@@ -87,6 +140,11 @@ public abstract class Animal {
 
 	}
 
+	/**
+	 * @param <T>
+	 * @param gender
+	 * @throws Exception
+	 */
 	public <T> void setGender(T gender) throws Exception {
 
 		if (gender instanceof String) {
@@ -114,6 +172,10 @@ public abstract class Animal {
 		}
 	}
 
+	/**
+	 * @param weight
+	 * @throws Exception
+	 */
 	public void setWeight(float weight) throws Exception {
 
 		if (weight > 0)
@@ -122,11 +184,17 @@ public abstract class Animal {
 			throw new Exception("Invalid weight: " + weight);
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public String toString() {
 		return this.id + " " + this.type;
 	}
 
+	/**
+	 * 
+	 */
 	abstract public void eat();	
 	
 }

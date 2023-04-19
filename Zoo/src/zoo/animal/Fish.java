@@ -2,30 +2,60 @@ package zoo.animal;
 
 public abstract class Fish extends Animal {
 
+	/**
+	 * 
+	 */
 	protected Water water;
 	
+	/**
+	 * 
+	 */
 	protected final String type = "fish";
 	
+	/**
+	 * 
+	 */
 	public Fish() {
 		super();
 		this.water = Water.UNKNOWN;
 		
 	}
 
+	/**
+	 * @param <T>
+	 * @param birthdate
+	 * @param weight
+	 * @throws Exception
+	 */
 	public <T> Fish(T birthdate, float weight) throws Exception {
 		super(birthdate, weight);
 	}
 	
+	/**
+	 * @param <T>
+	 * @param birthdate
+	 * @param weight
+	 * @param water
+	 * @throws Exception
+	 */
 	public <T> Fish(T birthdate, float weight, T water) throws Exception {
 		super(birthdate, weight);
 		this.setWater(water);
 	}
 
 	// fix this
+	/**
+	 * @return
+	 */
 	public Water getWater() {
 		return this.water;
 	}
 
+	/**
+	 * @param <T>
+	 * @param water
+	 * @throws Exception
+	 */
 	public <T> void setWater(T water) throws Exception {
 		
 		//finish this
@@ -58,6 +88,9 @@ public abstract class Fish extends Animal {
 		}
 	}
 	
+	/**
+	 *
+	 */
 	@Override
 	public String toString() {
 		return this.id + " " + this.type;
