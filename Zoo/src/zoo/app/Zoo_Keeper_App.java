@@ -8,10 +8,12 @@ import java.util.Locale;
 
 import zoo.animal.*;
 
-/**
- * @author Gglea
- *
- */
+/********************************************************************************************************
+ * description:		this app creates a list of animals after coding them
+ * Author:			Tyler Gleason
+ * Date Written:	2023.04.18
+ * GitHub:			https://github.com/tygleas1/MyJavaProjects
+ *******************************************************************************************************/
 public class Zoo_Keeper_App {
 
 	/**
