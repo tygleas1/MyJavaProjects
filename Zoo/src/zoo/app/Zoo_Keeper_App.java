@@ -8,20 +8,26 @@ import java.util.Locale;
 
 import zoo.animal.*;
 
+/**
+ * @author Gglea
+ *
+ */
 public class Zoo_Keeper_App {
 
 	/**
-	 * 
+	 * formats the date as Month-Day-Year, cannot be altered outside of this 
+	 * class, works like this across every class, declared as final because it won't
+	 * be changed again in this class
 	 */
 	private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.US);
 
 	/**
-	 * 
+	 * creats a list of animals, cannot be changed
 	 */
 	private static List<Animal> animals = new ArrayList<Animal>();
 
 	/**
-	 * 
+	 * declares the zoo keeper app
 	 */
 	public Zoo_Keeper_App() {
 		// no house keeping items yet...
@@ -30,6 +36,7 @@ public class Zoo_Keeper_App {
 	/**
 	 * @param args
 	 * @throws Exception
+	 * main function where the program will start
 	 */
 	public static void main(String[] args) throws Exception {
 
@@ -65,6 +72,11 @@ public class Zoo_Keeper_App {
 			 * Gender.MALE; System.out.println(b3.gender);
 			 */
 
+			/*
+			 * these are the animal lines of code, they create
+			 * 3 of every animal and assign a birthdate and wingspan
+			 * or water type to them before displaying them
+			 */
 			Chicken c1 = new Chicken();
 			Chicken c2 = new Chicken("12-31-2022", (float) 10.5);
 			Chicken c3 = new Chicken("12-31-2022", (float) 10.5, (float) 2.2);
