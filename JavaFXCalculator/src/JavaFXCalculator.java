@@ -14,9 +14,18 @@ import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
+/********************************************************************************************************
+ * description:		this app creates a working virtual calculator, coded with memory buttons
+ * 					and a few advanced calculator functions
+ * Author:			Tyler Gleason
+ * Date Written:	2023.05.02
+ * GitHub:			https://github.com/tygleas1/MyJavaProjects
+ *******************************************************************************************************/
+
+// declares and sets many of the fields used with the calculator
 public class JavaFXCalculator extends Application {
-	private Double memory = 0.0;
-	private Text memoryText = new Text ("memory =" + memory);
+	private Double memory = 0.0; // sets memory to 0, or empty
+	private Text memoryText = new Text ("memory =" + memory); //displays what the memory equals
 	private TextField tfDisplay;    // display textfield
 	private Button[] btns;          // 24 buttons
 	private String[] btnLabels = {  // Labels of 24 buttons
@@ -124,6 +133,7 @@ public class JavaFXCalculator extends Application {
 			this.memory = 0.0;
 			this.memoryText.setText("memory = " + memory);
 			
+			// square root function
 		case "\u221A":
 			if (this.lastOperator != '=') {
 				this.result = Double.parseDouble(this.inStr);
@@ -133,6 +143,7 @@ public class JavaFXCalculator extends Application {
 				this.lastOperator = '=';
 			}	
 			
+			// backspace function
 		case "\u2190":
 			if(this.inStr.length() == 1) {
 				this.inStr = "0";	
@@ -200,6 +211,7 @@ public class JavaFXCalculator extends Application {
 			btns[i].setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // full-width
 			paneButton.add(btns[i], i % numCols, i / numCols);  // control, col, row
 			
+			//assigns colors to certain buttons
 			switch (btnLabels[i]) {
 				case "M+": case "M-": case "MR": case "MC":
 					btns[i].setStyle("-fx-color: blue");
