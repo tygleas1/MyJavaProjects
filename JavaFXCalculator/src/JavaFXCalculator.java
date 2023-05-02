@@ -23,8 +23,8 @@ public class JavaFXCalculator extends Application {
 			"7", "8", "9", "+",
 			"4", "5", "6", "-",
 			"1", "2", "3", "x",
-			"C", "0", "=", "\u00F7",
-			".", "\u2190", "^", "\u221A", 
+			".", "0", "=", "\u00F7",
+			"C", "\u2190", "^", "\u221A", 
 			"M+", "M-", "MR", "MC" 
 
 	};
@@ -34,7 +34,7 @@ public class JavaFXCalculator extends Application {
 	// Previous operator: ' '(nothing), '+', '-', '*', '/', '='
 	private char lastOperator = ' ';
 
-	// Event handler for all the 16 Buttons
+	// Event handler for all the 24 Buttons
 	EventHandler handler = evt -> {
 		String currentBtnLabel = ((Button)evt.getSource()).getText();
 		switch (currentBtnLabel) {
@@ -200,9 +200,15 @@ public class JavaFXCalculator extends Application {
 			btns[i].setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // full-width
 			paneButton.add(btns[i], i % numCols, i / numCols);  // control, col, row
 			
-			/*switch () {
-			
-			} */
+			switch (btnLabels[i]) {
+				case "M+": case "M-": case "MR": case "MC":
+					btns[i].setStyle("-fx-color: blue");
+					break;
+				
+				case "C": case "\u2190":
+					btns[i].setStyle("-fx-color: orange");
+					break;
+			}
 		}
 
 		// Setup up the scene graph rooted at a BorderPane (of 5 zones)
