@@ -123,7 +123,23 @@ public class JavaFXCalculator extends Application {
 		case "MC":
 			this.memory = 0.0;
 			this.memoryText.setText("memory = " + memory);
-
+			
+		case "\u221A":
+			if (this.lastOperator != '=') {
+				this.result = Double.parseDouble(this.inStr);
+				this.result = Math.sqrt(this.result);
+				this.inStr = this.result + "";
+				this.tfDisplay.setText(this.inStr);
+				this.lastOperator = '=';
+			}	
+			
+		case "\u2190":
+			if(this.inStr.length() == 1) {
+				this.inStr = "0";	
+			} else {
+			    this.inStr = inStr.substring(0, this.inStr.length() - 1);
+			}
+			this.tfDisplay.setText(this.inStr);
 		}
 	};
 
@@ -145,7 +161,10 @@ public class JavaFXCalculator extends Application {
 			result /= inNum;
 		} else if (lastOperator == '=') {
 			// Keep the result for the next operation
+		} else if (lastOperator == '^') {
+			result = Math.pow(result, inNum);
 		}
+		
 		tfDisplay.setText(result + "");
 	}
 
@@ -173,13 +192,17 @@ public class JavaFXCalculator extends Application {
 			paneButton.getColumnConstraints().add(columns[i]);
 		}
 
-		// Setup 16 Buttons and add to GridPane; and event handler
+		// Setup 24 Buttons and add to GridPane; and event handler
 		btns = new Button[24];
 		for (int i = 0; i < btns.length; ++i) {
 			btns[i] = new Button(btnLabels[i]);
 			btns[i].setOnAction(handler);  // Register event handler
 			btns[i].setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // full-width
 			paneButton.add(btns[i], i % numCols, i / numCols);  // control, col, row
+			
+			/*switch () {
+			
+			} */
 		}
 
 		// Setup up the scene graph rooted at a BorderPane (of 5 zones)
